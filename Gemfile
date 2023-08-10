@@ -12,6 +12,15 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+# authentication with token
+gem 'jwt'
+
+# encrypt password
+gem 'bcrypt', '~> 3.1.7'
+
+# Use faker for generating fake data in development and testing
+gem 'faker', '~> 2.18', group: :development
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 

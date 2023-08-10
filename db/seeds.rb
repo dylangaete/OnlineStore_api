@@ -1,8 +1,14 @@
-user = User.find_or_create_by(email: "ejemplo@example.com") do |u|
-  u.name = "Ejemplo Usuario"
+require 'bcrypt'
+
+user = User.find_or_create_by(email: Faker::Internet.email) do |u|
+  u.name = Faker::Name.name
+  password = '1234'
+  u.password = BCrypt::Password.create(password)
+  puts "Usuario: #{u.email}, Contraseña: #{password}"
 end
 
-shop_names = ["Tienda 1", "Tienda 2", "Tienda 3", "Tienda 4", "Tienda 5"]
-shop_names.each do |name|
-  user.shops.find_or_create_by(name: name)
+1.times do
+  user.shops.find_or_create_by(name: Faker::Company.name)
 end
+
+# ...
